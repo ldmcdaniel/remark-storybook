@@ -3,10 +3,12 @@ import Header from '../components/Header';
 
 import { Container } from './styles';
 
-const Template = (props: any) => (
+const Template = ({ children }: JSX.ElementChildrenAttribute) => (
   <Container>
-    <Header {...props} />
-    {props.children}
+    <>
+      <Header />
+      {children}
+    </>
   </Container>
 );
 

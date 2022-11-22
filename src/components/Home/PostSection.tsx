@@ -1,28 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { PostList, SecondaryContent, SectionTitle } from './styles';
 import Card from '../Card';
 
-const PostSection = ({ posts, title }) => (
+interface Props {
+  posts: Queries.BlogIndexQuery['allMarkdownRemark']['nodes'];
+  title: string;
+}
+
+const PostSection = ({ posts, title }: Props) => (
   <section>
     <SecondaryContent>
       <SectionTitle>{title}</SectionTitle>
       <PostList>
-        {posts.slice(0, 3).map((post, idx) => (
-          <Card {...post} idx={idx} />
+        {posts.slice(0, 3).map((post) => (
+          <Card {...post} />
         ))}
       </PostList>
     </SecondaryContent>
   </section>
 );
-
-PostSection.defaultProps = {
-  musicPosts: [],
-};
-
-PostSection.propTypes = {
-  musicPosts: PropTypes.array,
-};
 
 export default PostSection;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import {
 //   faAngleLeft,
@@ -27,10 +27,12 @@ import Home from '../components/Home';
 //   faSlash,
 // );
 
-const BlogIndex = (props: any) => <Home {...props} />;
+const BlogIndex = (props: PageProps<Queries.BlogIndexQuery>) => (
+  <Home {...props} />
+);
 
 export const query = graphql`
-  query IndexQuery {
+  query BlogIndex {
     site {
       siteMetadata {
         title

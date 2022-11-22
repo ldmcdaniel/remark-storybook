@@ -8,7 +8,6 @@ import React from 'react';
 import { Body, Content } from './styles';
 
 const Post = (props: any) => {
-  console.log('props from Post', props);
   const {
     data: {
       markdownRemark: {

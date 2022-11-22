@@ -9,17 +9,22 @@ import {
   SecondaryPosts,
 } from './styles';
 
-const Headline = ({ posts, title }: { posts: any; title: any }) => (
+interface Props {
+  posts: Queries.BlogIndexQuery['allMarkdownRemark']['nodes'];
+  title: string;
+}
+
+const Headline = ({ posts, title }: Props) => (
   <section>
     <InitialContent>
       <MainTitle>{title}</MainTitle>
       <LatestPostList>
         <FeaturedPost>
-          <Card {...posts[0]} idx={0} />
+          <Card {...posts[0]} />
         </FeaturedPost>
         <SecondaryPosts>
-          <Card {...posts[1]} idx={1} />
-          <Card {...posts[2]} idx={2} />
+          <Card {...posts[1]} />
+          <Card {...posts[2]} />
         </SecondaryPosts>
       </LatestPostList>
     </InitialContent>
